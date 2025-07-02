@@ -14,10 +14,16 @@ spec:
   metrics:
     - type: Resource
       resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 60
+          averageUtilization: 80
 
 ---
 # HorizontalPodAutoscaler: product
@@ -36,10 +42,16 @@ spec:
   metrics:
     - type: Resource
       resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 60
+          averageUtilization: 80
 
 ---
 # HorizontalPodAutoscaler: supplier
@@ -58,10 +70,16 @@ spec:
   metrics:
     - type: Resource
       resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 60
+          averageUtilization: 80
 
 ---
 # HorizontalPodAutoscaler: frontend
@@ -80,10 +98,16 @@ spec:
   metrics:
     - type: Resource
       resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 60
+          averageUtilization: 80
 
 ---
 # HorizontalPodAutoscaler: database
@@ -102,10 +126,16 @@ spec:
   metrics:
     - type: Resource
       resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 60
+          averageUtilization: 80
 
 ---
 # HorizontalPodAutoscaler: keycloak
@@ -124,7 +154,13 @@ spec:
   metrics:
     - type: Resource
       resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 60
+          averageUtilization: 80
