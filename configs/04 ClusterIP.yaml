@@ -203,3 +203,18 @@ spec:
     - port: 80
       targetPort: 80
   type: ClusterIP
+---
+
+# event broker ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: evbroker-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: evbroker
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP

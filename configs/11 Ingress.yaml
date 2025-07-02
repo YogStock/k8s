@@ -100,6 +100,16 @@ spec:
                 name: database-lb
                 port:
                   number: 80
+    - host: broker.cyprien-siaud.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: evbroker-lb
+                port:
+                  number: 80
     - host: s3.cyprien-siaud.local
       http:
         paths:
