@@ -2,7 +2,7 @@
 
 Commande pour appliquer les configurations :
 ```bash
-kubectl apply -k "https://github.com/YogStock/k8s/blob/main/configs/kustomization.yaml"
+kubectl apply -k "https://github.com/YogStock/k8s//configs?ref=main"
 ```
 
 ## Pour consulter les pods
