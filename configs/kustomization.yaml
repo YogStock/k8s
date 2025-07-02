@@ -1,0 +1,12 @@
+resources:
+- 01 Namespace.yaml
+- 02 Secrets.yaml
+- 03 Configmap.yaml
+- 04 ClusterIP.yaml 
+- 05 Volume.yaml 
+- 06 Deployment.yaml 
+- 07 Job.yaml 
+- 08 CronJob.yaml 
+- 09 HPA.yaml 
+- 10 LoadBalancer.yaml 
+- 11 Ingress.yaml

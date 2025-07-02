@@ -1,0 +1,112 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cloud-app-ingress
+  namespace: cloud-app
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: cyprien-siaud.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-lb
+                port:
+                  number: 80
+          - path: /category
+            pathType: Prefix
+            backend:
+              service:
+                name: category-lb
+                port:
+                  number: 80
+          - path: /product
+            pathType: Prefix
+            backend:
+              service:
+                name: product-lb
+                port:
+                  number: 80
+          - path: /tva
+            pathType: Prefix
+            backend:
+              service:
+                name: tva-service
+                port:
+                  number: 80
+          - path: /unit
+            pathType: Prefix
+            backend:
+              service:
+                name: unit-service
+                port:
+                  number: 80
+          - path: /location
+            pathType: Prefix
+            backend:
+              service:
+                name: location-service
+                port:
+                  number: 80
+          - path: /company
+            pathType: Prefix
+            backend:
+              service:
+                name: company-service
+                port:
+                  number: 80
+          - path: /use
+            pathType: Prefix
+            backend:
+              service:
+                name: use-service
+                port:
+                  number: 80
+          - path: /supplier
+            pathType: Prefix
+            backend:
+              service:
+                name: supplier-lb
+                port:
+                  number: 80
+          - path: /document
+            pathType: Prefix
+            backend:
+              service:
+                name: document-service
+                port:
+                  number: 80
+    - host: keycloak.cyprien-siaud.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: keycloak-lb
+                port:
+                  number: 80
+    - host: db.cyprien-siaud.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: database-lb
+                port:
+                  number: 80
+    - host: s3.cyprien-siaud.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: s3
+                port:
+                  number: 80

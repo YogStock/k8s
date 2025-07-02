@@ -1,0 +1,205 @@
+# category ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: category-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: category
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+
+# product ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: product
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+
+# tva ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: tva-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: tva
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+
+# unit ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: unit-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: unit
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+
+# location ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: location-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: location
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+
+# company ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: company-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: company
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+
+# use ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: use-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: use
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+
+# supplier ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: supplier-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: supplier
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+
+# document ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: document-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: document
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+
+# frontend ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: frontend
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+
+# database ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: database-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: database
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+
+# keycloak ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: keycloak
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+
+# s3 ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: s3-cip
+  namespace: cloud-app
+spec:
+  selector:
+    app: s3
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP

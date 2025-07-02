@@ -1,0 +1,21 @@
+# Job: Document Generator
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: document-generator
+  namespace: cloud-app
+spec:
+  template:
+    spec:
+      containers:
+        - name: doc-generator
+          image: node:18-alpine
+          command: ["node", "-e", "setTimeout(() => console.log('OK'), 5000)"]
+          volumeMounts:
+            - name: document-storage
+              mountPath: /data
+      restartPolicy: Never
+      volumes:
+        - name: document-storage
+          persistentVolumeClaim:
+            claimName: s3-pvc

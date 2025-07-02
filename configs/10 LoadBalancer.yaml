@@ -1,0 +1,88 @@
+# LoadBalancer category
+apiVersion: v1
+kind: Service
+metadata:
+  name: category-lb
+  namespace: cloud-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: category
+  ports:
+    - port: 80
+      targetPort: 80
+
+---
+# LoadBalancer product
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-lb
+  namespace: cloud-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: product
+  ports:
+    - port: 80
+      targetPort: 80
+
+---
+# LoadBalancer supplier
+apiVersion: v1
+kind: Service
+metadata:
+  name: supplier-lb
+  namespace: cloud-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: supplier
+  ports:
+    - port: 80
+      targetPort: 80
+
+---
+# LoadBalancer frontend
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-lb
+  namespace: cloud-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: frontend
+  ports:
+    - port: 80
+      targetPort: 80
+
+---
+# LoadBalancer database
+apiVersion: v1
+kind: Service
+metadata:
+  name: database-lb
+  namespace: cloud-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: database
+  ports:
+    - port: 80
+      targetPort: 80
+
+---
+# LoadBalancer keycloak
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-lb
+  namespace: cloud-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: keycloak
+  ports:
+    - port: 80
+      targetPort: 80

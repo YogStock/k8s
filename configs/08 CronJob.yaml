@@ -1,0 +1,39 @@
+# CronJob: Stats Generator
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: stats-generator
+  namespace: cloud-app
+spec:
+  schedule: "0 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: stats-generator
+              image: node:18-alpine
+              command: ["node", "-e", "console.log('STATS OK')"]
+          restartPolicy: OnFailure
+      ttlSecondsAfterFinished: 4500
+
+---
+
+# CronJob: Clear PVC
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: clear-pvc
+  namespace: cloud-app
+spec:
+  schedule: "0 */12 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: clear-pvc
+              image: node:18-alpine
+              command: ["node", "-e", "console.log('Clearing PVC')"]
+          restartPolicy: OnFailure
+      ttlSecondsAfterFinished: 50400

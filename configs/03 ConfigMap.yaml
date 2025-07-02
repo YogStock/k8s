@@ -1,0 +1,55 @@
+# ConfigMap: Frontend
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: front-config
+  namespace: cloud-app
+data:
+  APP_URL: "https://cyprien-siaud.local"
+
+---
+# ConfigMap: Keycloak
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: keycloak-config
+  namespace: cloud-app
+data:
+  APP_URL: "https://keycloak.cyprien-siaud.local"
+---
+# ConfigMap: s3
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: s3-config
+  namespace: cloud-app
+data:
+  APP_URL: "https://s3.cyprien-siaud.local"
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: services-config
+  namespace: cloud-app
+data:
+  APP_URL: "https://cyprien-siaud.local"
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: evbroker-config
+  namespace: cloud-app
+data:
+  APP_URL: "https://cyprien-siaud.local"
+
+---
+# ConfigMap: DB
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+  namespace: cloud-app
+data:
+  APP_URL: "https://db.cyprien-siaud.local"

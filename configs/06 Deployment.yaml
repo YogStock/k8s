@@ -1,0 +1,377 @@
+# category
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: category
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: category
+  template:
+    metadata:
+      labels:
+        app: category
+    spec:
+      containers:
+        - name: category
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: services-config
+
+---
+# product
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product
+  template:
+    metadata:
+      labels:
+        app: product
+    spec:
+      containers:
+        - name: product
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: services-config
+
+---
+# tva
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tva
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tva
+  template:
+    metadata:
+      labels:
+        app: tva
+    spec:
+      containers:
+        - name: tva
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: services-config
+
+---
+# unit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unit
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: unit
+  template:
+    metadata:
+      labels:
+        app: unit
+    spec:
+      containers:
+        - name: unit
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: services-config
+
+---
+# location
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: location
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: location
+  template:
+    metadata:
+      labels:
+        app: location
+    spec:
+      containers:
+        - name: location
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: services-config
+
+---
+# company
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: company
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: company
+  template:
+    metadata:
+      labels:
+        app: company
+    spec:
+      containers:
+        - name: company
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: services-config
+
+---
+# use
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: use
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: use
+  template:
+    metadata:
+      labels:
+        app: use
+    spec:
+      containers:
+        - name: use
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: services-config
+
+---
+# supplier
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: supplier
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: supplier
+  template:
+    metadata:
+      labels:
+        app: supplier
+    spec:
+      containers:
+        - name: supplier
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: services-config
+
+---
+# document
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: document
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: document
+  template:
+    metadata:
+      labels:
+        app: document
+    spec:
+      containers:
+        - name: document
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: services-config
+          volumeMounts:
+            - name: document-storage
+              mountPath: /data
+      volumes:
+        - name: document-storage
+          persistentVolumeClaim:
+            claimName: s3-pvc
+
+---
+# database
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+        - name: database
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: db-config
+            - secretRef:
+                name: db-credentials
+
+---
+# keycloak
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+    spec:
+      containers:
+        - name: keycloak
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: keycloak-config
+
+---
+# s3
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: s3
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: s3
+  template:
+    metadata:
+      labels:
+        app: s3
+    spec:
+      containers:
+        - name: s3
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: s3-config
+          volumeMounts:
+            - name: document-storage
+              mountPath: /data
+      volumes:
+        - name: document-storage
+          persistentVolumeClaim:
+            claimName: s3-pvc
+---
+# event broker
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: evbroker
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: evbroker
+  template:
+    metadata:
+      labels:
+        app: evbroker
+    spec:
+      containers:
+        - name: evbroker
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: evbroker-config
+
+---
+# frontend
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: cloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: front-config
