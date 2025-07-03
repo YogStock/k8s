@@ -90,16 +90,6 @@ spec:
                 name: keycloak-lb
                 port:
                   number: 80
-    - host: db.cyprien-siaud.local
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: database-lb
-                port:
-                  number: 80
     - host: broker.cyprien-siaud.local
       http:
         paths:

@@ -16,7 +16,6 @@ A ajouter dans le fichier hosts :
 127.0.0.1   keycloak.cyprien-siaud.local
 127.0.0.1   s3.cyprien-siaud.local
 127.0.0.1   broker.cyprien-siaud.local
-127.0.0.1   db.cyprien-siaud.local
 ```
 
 ## Liste des composants
