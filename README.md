@@ -18,7 +18,9 @@ A ajouter dans le fichier hosts :
 127.0.0.1   broker.cyprien-siaud.local
 ```
 
-## Liste des composants
+## Architecture
+
+### Liste des composants
 - 1 x Namespace
 - 2 x Secrets
 - 6 x ConfigMaps
@@ -31,3 +33,5 @@ A ajouter dans le fichier hosts :
 - 2 x CronJobs
 - 6 x HPA
 - 1 x Ingress
+
+![Infra Kubernetes](Infra_k8s.svg)
